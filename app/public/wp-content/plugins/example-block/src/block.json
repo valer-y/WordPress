@@ -1,17 +1,29 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "example-block/example-block",
-	"version": "0.1.0",
-	"title": "Example block",
-	"category": "widgets",
-	"icon": "superhero-alt",
-	"description": "Example block to train React-block development",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "example-block",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "example-block/example-block",
+  "version": "0.1.0",
+  "title": "Example block",
+  "category": "widgets",
+  "icon": "superhero-alt",
+  "description": "Example block to train React-block development",
+  "supports": {
+	"html": false
+  },
+  "textdomain": "example-block",
+  "keywords": [
+	"kinsta",
+	"academy",
+	"superhero"
+  ],
+  "attributes": {
+	"content": {
+	  "type": "string",
+	  "source": "html",
+	  "selector": "p"
+	}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }
