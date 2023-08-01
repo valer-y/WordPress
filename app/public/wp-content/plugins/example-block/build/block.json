@@ -11,6 +11,18 @@
     "html": false
   },
   "textdomain": "example-block",
+  "keywords": [
+    "kinsta",
+    "academy",
+    "superhero"
+  ],
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    }
+  },
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
