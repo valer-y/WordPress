@@ -11,7 +11,12 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	AlignmentControl,
+	BlockControls
+} from '@wordpress/block-editor'
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -37,14 +42,27 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { content: newContent } )
 	}
 
+	const onChangeAlign = ( newAlign ) => {
+		setAttributes( { content: newAlign } )
+	}
+
+
 	return (
-		<RichText
-			{ ...blockProps }
-			tagName="p"
-			onChange={ onChangeContent }
-			allowedFormats={ [ 'core/bold', 'core/italic' ] }
-			value={ attributes.content }
-			placeholder={ __( 'Write your text...' ) }
-		/>
+		<>
+			<BlockControls>
+				<AlignmentControl
+					value={ attributes.align }
+					onChange={ onChangeAlign }
+				/>
+			</BlockControls>
+			<RichText
+				{ ...blockProps }
+				tagName="p"
+				onChange={ onChangeContent }
+				allowedFormats={ [ 'core/bold', 'core/italic' ] }
+				value={ attributes.content }
+				placeholder={ __( 'Write your text...' ) }
+			/>
+		</>
 	);
 }
