@@ -56,6 +56,12 @@ function Edit({
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+  const {
+    content,
+    align,
+    backgroundColor,
+    textColor
+  } = attributes;
   const onChangeContent = newContent => {
     setAttributes({
       content: newContent
@@ -63,10 +69,32 @@ function Edit({
   };
   const onChangeAlign = newAlign => {
     setAttributes({
-      content: newAlign
+      align: newAlign === undefined ? 'none' : newAlign
     });
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentControl, {
+  const onChangeBackgroundColor = newBackgroundColor => {
+    setAttributes({
+      backgroundColor: newBackgroundColor
+    });
+  };
+  const onChangeTextColor = newTextColor => {
+    setAttributes({
+      textColor: newTextColor
+    });
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color settings', 'ka-example-block'),
+    initialOpen: false,
+    colorSettings: [{
+      value: textColor,
+      onChange: onChangeTextColor,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text color', 'ka-example-block')
+    }, {
+      value: backgroundColor,
+      onChange: onChangeBackgroundColor,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'ka-example-block')
+    }]
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentControl, {
     value: attributes.align,
     onChange: onChangeAlign
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
@@ -75,7 +103,12 @@ function Edit({
     onChange: onChangeContent,
     allowedFormats: ['core/bold', 'core/italic'],
     value: attributes.content,
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write your text...')
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write your text...'),
+    style: {
+      textAlign: attributes.align,
+      backgroundColor: backgroundColor,
+      color: textColor
+    }
   }));
 }
 
@@ -171,10 +204,21 @@ function save({
   attributes
 }) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  const {
+    content,
+    align,
+    backgroundColor,
+    textColor
+  } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     ...blockProps,
     tagName: "p",
-    value: attributes.content
+    value: content,
+    style: {
+      textAlign: align,
+      backgroundColor: backgroundColor,
+      color: textColor
+    }
   });
 }
 
@@ -250,7 +294,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"example-block/example-block","version":"0.1.0","title":"Example block","category":"widgets","icon":"superhero-alt","description":"Example block to train React-block development","supports":{"html":false},"textdomain":"example-block","keywords":["kinsta","academy","superhero"],"attributes":{"content":{"type":"string","source":"html","selector":"p"},"align":{"type":"string","default":"none"}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"example-block/example-block","version":"0.1.0","title":"Example block","category":"widgets","icon":"superhero-alt","description":"Example block to train React-block development","supports":{"html":false},"textdomain":"example-block","keywords":["kinsta","academy","superhero"],"attributes":{"content":{"type":"string","source":"html","selector":"p"},"align":{"type":"string","default":"none"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
