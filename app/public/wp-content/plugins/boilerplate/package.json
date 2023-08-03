@@ -5,9 +5,13 @@
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
+	"prettier": "@wordpress/prettier-config",
+	"stylelint": {
+		"extends": "@wordpress/stylelint-config/scss"
+	},
 	"scripts": {
 		"build": "wp-scripts build",
-		"format": "wp-scripts format",
+		"format": "wp-scripts format && stylelint \"**/*.scss\" --fix",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
@@ -15,6 +19,9 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.9.0"
+		"@wordpress/prettier-config": "^2.21.0",
+		"@wordpress/scripts": "^26.9.0",
+		"@wordpress/stylelint-config": "^21.21.0",
+		"eslint-config-prettier": "^8.10.0"
 	}
 }
