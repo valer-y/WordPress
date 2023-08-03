@@ -1,0 +1,10 @@
+{
+  "apiVersion": 2,
+  "name": "blocks-course/firstblock",
+  "title": "First block",
+  "description": "Test first block",
+  "category": "text",
+  "icon": "format-status",
+  "textdomain": "first_block",
+  "editorScript": "file: ./index.js"
+}
