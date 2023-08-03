@@ -1,0 +1,21 @@
+{
+	"name": "firstblock",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "wp-scripts build",
+		"start": "wp-scripts start"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@wordpress/scripts": "^26.9.0"
+	},
+	"dependencies": {
+		"@wordpress/babel-preset-default": "^7.22.0",
+		"@wordpress/blocks": "^12.15.0",
+		"@wordpress/interface": "^5.15.0"
+	}
+}
