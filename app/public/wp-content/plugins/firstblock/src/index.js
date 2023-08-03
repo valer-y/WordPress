@@ -1,10 +1,10 @@
 import { registerBlockType } from '@wordpress/blocks';
+import Edit from "./edit";
+import Save from "./save";
+
+import "./style.scss";
 
 registerBlockType( 'blocks-course/firstblock', {
-	edit: function () {
-		return <p className="class">Edit</p>;
-	},
-	save: function () {
-		return <p className="class">Save</p>;
-	},
+	edit: Edit,
+	save: Save,
 } );
