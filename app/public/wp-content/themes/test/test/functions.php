@@ -21,6 +21,80 @@ if ( ! defined( '_S_VERSION' ) ) {
  */
 function test_setup() {
 
+	add_theme_support('editor-styles');
+	add_editor_style("style-editor.css");
+
+	add_theme_support("responsive-embeds");
+	add_theme_support("align-wide");
+
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name' => __( 'Strong magenta', 'themeLangDomain' ),
+			'slug' => 'strong-magenta',
+			'color' => '#a156b4',
+		),
+		array(
+			'name' => __( 'Light grayish magenta', 'themeLangDomain' ),
+			'slug' => 'light-grayish-magenta',
+			'color' => '#d0a5db',
+		),
+	) );
+
+//	add_theme_support('disable-custom-colors');
+
+	add_theme_support(
+		'editor-gradient-presets',
+		array(
+			array(
+				'name'     => esc_attr__( 'Vivid cyan blue to vivid purple', 'themeLangDomain' ),
+				'gradient' => 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)',
+				'slug'     => 'vivid-cyan-blue-to-vivid-purple'
+			),
+			array(
+				'name'     => esc_attr__( 'Vivid green cyan to vivid cyan blue', 'themeLangDomain' ),
+				'gradient' => 'linear-gradient(135deg,rgba(0,208,132,1) 0%,rgba(6,147,227,1) 100%)',
+				'slug'     =>  'vivid-green-cyan-to-vivid-cyan-blue',
+			),
+			array(
+				'name'     => esc_attr__( 'Light green cyan to vivid green cyan', 'themeLangDomain' ),
+				'gradient' => 'linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%)',
+				'slug'     => 'light-green-cyan-to-vivid-green-cyan',
+			))
+	);
+
+	add_theme_support('disable-custom-gradients');
+
+	add_theme_support( 'editor-font-sizes', array(
+		array(
+			'name' => __( 'Small'),
+			'size' => 12,
+			'slug' => 'small'
+		),
+		array(
+			'name' => __( 'Normal'),
+			'size' => 16,
+			'slug' => 'normal'
+		),
+		array(
+			'name' => __( 'Large'),
+			'size' => 24,
+			'slug' => 'large'
+		),
+		array(
+			'name' => __( 'Huge'),
+			'size' => 36,
+			'slug' => 'huge'
+		)
+	) );
+
+	add_theme_support("disable-custom-font-sizes");
+
+	add_theme_support("custom-line-height");
+
+	add_theme_support("custom-spacing");
+
+	add_theme_support("custom-units", "px", "rem", "em");
+
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
