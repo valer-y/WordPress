@@ -1,3 +1,10 @@
-var registerBlockType = wp.block.registerBlockType;
+var registerBlockType = wp.blocks.registerBlockType;
 
-registerBlockType("first_block");
+registerBlockType("blocks-course/firstblock", {
+  edit: function () {
+    return "Edit";
+  },
+  save: function () {
+    return "Save";
+  },
+});
