@@ -12,4 +12,4 @@ app/public/wp-content/*
 !app/public/wp-content/mu-plugins
 app/public/wp-content/themes/*
 !app/public/wp-content/themes
-!app/public/wp-content/themes/twentytwentytwo
+!app/public/wp-content/themes/test
