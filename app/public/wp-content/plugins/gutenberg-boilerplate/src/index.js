@@ -3,11 +3,7 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 
-registerBlockType("block-course/text-box", {
-	icon: {
-		src: 'text-page',
-		foreground: '#EA5C78FF'
-	},
+registerBlockType('create-block/boilerplate', {
 	edit: Edit,
 	save,
 });
