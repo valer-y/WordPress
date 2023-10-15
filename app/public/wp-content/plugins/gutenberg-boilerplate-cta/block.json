@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "gutenberg/boilerplate-cta",
+	"title": "CTA",
+	"category": "text",
+	"icon": "smiley",
+	"description": "CTA block",
+  	"keywords": ["CTA"],
+  	"supports": {
+		"html": false
+	},
+	"textdomain": "cta",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
