@@ -8,6 +8,10 @@ registerBlockType('gutenberg/boilerplate-cta', {
 		html: false,
 	},
 	attributes: {
+		backgroundColor : {
+			type: "string",
+			default: '#F00'
+		},
 		description: {
 			type: "string",
 			source: "html",
@@ -24,6 +28,15 @@ registerBlockType('gutenberg/boilerplate-cta', {
 			default: ""
 		},
 		url: {
+			type: "string",
+			source: "attribute",
+			selector: "img",
+			attribute: "src"
+		},
+		link : {
+			link: 'https://ya.ru',
+		},
+		logoUrl: {
 			type: "string",
 			source: "attribute",
 			selector: "img",

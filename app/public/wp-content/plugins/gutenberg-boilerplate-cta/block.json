@@ -3,7 +3,7 @@
 	"name": "gutenberg/boilerplate-cta",
 	"title": "CTA",
 	"category": "text",
-	"icon": "smiley",
+	"icon": "cover-image",
 	"description": "CTA block",
   	"keywords": ["CTA"],
   	"supports": {
