@@ -7,10 +7,68 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-boilerplate {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+.cta-block {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  row-gap: 30px;
+}
+@media (min-width: 1024px) {
+  .cta-block {
+    padding: 40px 20px 0 20px;
+  }
+}
+.cta-block .cta-logo {
+  justify-content: center;
+  display: flex;
+  transform: scale(0.75);
+}
+@media (min-width: 1024px) {
+  .cta-block .cta-logo {
+    transform: unset;
+  }
+}
+.cta-block p.cta-description {
+  color: #3E3465;
+  text-align: center;
+  font-family: inherit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 200%;
+  max-width: 1095px;
+  margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .cta-block p.cta-description {
+    margin-bottom: 16px;
+  }
+}
+.cta-block .cta-image {
+  margin: 0 auto;
+}
+
+.wp-block-gutenberg-boilerplate-cta {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-gutenberg-boilerplate-cta div {
+  display: flex;
+  justify-content: center;
+}
+.wp-block-gutenberg-boilerplate-cta .cta-description {
+  max-width: 1024px;
+  margin: 30px auto;
+}
+
+.clear-logo-button {
+  border: unset;
+  color: white;
+  background: #3080e3;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0 20px 0;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

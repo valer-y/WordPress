@@ -88,7 +88,7 @@ function Edit({
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'tar')
     }]
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Logo', 'cta'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Logo Controls', 'cta'),
     icon: "buddicons-activity"
   }, logoUrl && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: logoUrl,
@@ -99,9 +99,20 @@ function Edit({
     accept: "image/*",
     allowedTypes: ['image'],
     disableMediaButtons: logoUrl
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: 'clear-logo-button',
+    onClick: () => {
+      setAttributes({
+        logoUrl: undefined
+      });
+    }
+  }, "Clear logo")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Input link",
-    value: link
+    value: link,
+    onChange: text => setAttributes({
+      link: text
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Input URL for logo", 'cta')
   }))), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
     group: "inline"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaReplaceFlow, {
@@ -115,26 +126,29 @@ function Edit({
     onClick: removeImage
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove image', 'cta'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: `test`,
+      className: `cta-admin`,
       style: {
         backgroundColor
       }
     })
-  }, url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, logoUrl && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: logoUrl
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Placeholder text', 'cta'),
+    tagname: "p",
+    onChange: onChangeDescritption,
+    vaue: description,
+    allowedFormats: ['core/bold', 'core/link'],
+    className: 'cta-description'
+  }), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
     alt: alt
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     icon: "smiley",
     onSelect: onSelectImage,
     accept: "image/*",
     allowedTypes: ['image'],
     disableMediaButtons: url
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Placeholder text', 'cta'),
-    tagname: "p",
-    onChange: onChangeDescritption,
-    vaue: description,
-    allowedFormats: ['core/bold', 'core/link']
   })));
 }
 
@@ -163,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
   attributes: {
     backgroundColor: {
       type: "string",
-      default: '#F00'
+      default: '#DFDFDF'
     },
     description: {
       type: "string",
@@ -227,24 +241,31 @@ function save({
     alt,
     id,
     logoUrl,
-    backgroundColor
+    backgroundColor,
+    link
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
       style: {
         backgroundColor
       }
-    })
-  }, logoUrl && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    }),
+    className: 'cta-block'
+  }, logoUrl && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: link,
+    className: 'cta-logo'
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     alt: "company logo",
-    src: logoUrl
+    src: logoUrl,
+    className: 'cta-logo__icon'
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "p",
+    value: description,
+    className: 'cta-description'
   }), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     alt: alt,
     src: url,
-    className: `wp-image-${id}`
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "p",
-    value: description
+    className: `wp-image-${id} cta-image`
   }));
 }
 

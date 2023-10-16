@@ -6,12 +6,13 @@ import {
 	BlockControls,
 	MediaReplaceFlow,
 	InspectorControls,
-	PanelColorSettings
+	PanelColorSettings,
+	URLInput
 } from '@wordpress/block-editor';
 import {
 	ToolbarButton,
 	TextControl,
-	PanelBody
+	PanelBody,
 } from '@wordpress/components';
 import './editor.scss';
 
@@ -65,7 +66,7 @@ export default function Edit({attributes, setAttributes}) {
 						},
 					]}
 				/>
-				<PanelBody title={__('Logo', 'cta')}
+				<PanelBody title={__('Logo Controls', 'cta')}
 						   icon={"buddicons-activity"}
 					>
 					{ logoUrl && <img src={ logoUrl } alt="logo" /> }
@@ -76,9 +77,23 @@ export default function Edit({attributes, setAttributes}) {
 						allowedTypes={['image']}
 						disableMediaButtons = { logoUrl }
 					/>
+					<div>
+						<button
+							className={'clear-logo-button'}
+							onClick={ () => {
+							setAttributes({
+								logoUrl: undefined
+							});
+						}}>
+							Clear logo
+						</button>
+
+					</div>
 					<TextControl
 						label="Input link"
 						value={ link }
+						onChange={ (text) => setAttributes({ link: text }) }
+						placeholder={__("Input URL for logo", 'cta')}
 					/>
 				</PanelBody>
 
@@ -97,19 +112,12 @@ export default function Edit({attributes, setAttributes}) {
 				</ToolbarButton>
 			</BlockControls> }
 			<section {...useBlockProps({
-					className: `test`,
+					className: `cta-admin`,
 					style: {
 						backgroundColor
 					}
 				})}>
-				{ url && <img src={ url } alt={ alt } /> }
-				<MediaPlaceholder
-					  icon={"smiley"}
-					  onSelect = { onSelectImage }
-					  accept="image/*"
-					  allowedTypes={['image']}
-					  disableMediaButtons = { url }
-				/>
+				{ logoUrl && <div><img src={ logoUrl } /></div> }
 				<RichText placeholder={__('Placeholder text', 'cta')}
 						  tagname="p"
 						  onChange={onChangeDescritption}
@@ -118,6 +126,15 @@ export default function Edit({attributes, setAttributes}) {
 							  'core/bold',
 							  'core/link'
 						  ]}
+						  className={'cta-description'}
+				/>
+				{ url && <div><img src={ url } alt={ alt } /></div> }
+				<MediaPlaceholder
+					  icon={"smiley"}
+					  onSelect = { onSelectImage }
+					  accept="image/*"
+					  allowedTypes={['image']}
+					  disableMediaButtons = { url }
 				/>
 			</section>
 		</>

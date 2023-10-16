@@ -10,7 +10,7 @@ registerBlockType('gutenberg/boilerplate-cta', {
 	attributes: {
 		backgroundColor : {
 			type: "string",
-			default: '#F00'
+			default: '#DFDFDF'
 		},
 		description: {
 			type: "string",
