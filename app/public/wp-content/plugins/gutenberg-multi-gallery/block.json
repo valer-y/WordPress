@@ -4,8 +4,8 @@
 	"title": "Multi Gallery",
 	"category": "text",
 	"icon": "smiley",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
-  	"keywords": ["gallery", "image", "thumbnail"],
+	"description": "Multi Gallery block",
+	"keywords": ["gallery", "image", "thumbnail"],
 	"supports": {
 		"html": false
 	},
@@ -13,10 +13,10 @@
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
-  	"attributes": {
-	  "elems": {
-		"type": "number",
-		"default": 2
-	  }
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 2
+		}
 	}
 }

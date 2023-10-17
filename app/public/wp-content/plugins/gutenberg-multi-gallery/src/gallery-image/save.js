@@ -1,9 +1,16 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
-export default function save() {
+export default function Save( { attributes } ) {
+	const { url, alt, id } = attributes;
 	return (
-		<section { ...useBlockProps.save() }>
-			<p>Save</p>
-		</section>
+		<div { ...useBlockProps.save() }>
+			{ url && (
+				<img
+					src={ url }
+					alt={ alt }
+					className={ id ? `wp-image-${ id }` : null }
+				/>
+			) }
+		</div>
 	);
 }

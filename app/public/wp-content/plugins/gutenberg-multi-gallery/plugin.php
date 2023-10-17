@@ -1,25 +1,18 @@
 <?php
 /**
  * Plugin Name:       Multi Gallery
- * Description:       Multi Gallery block
+ * Description:       Multi Gallery block.
  * Requires at least: 5.7
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            WP Contributor
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       cta
+ * Text Domain:       team-members
  *
- * @package           gutenberg
+ * @package           blocks-course
  */
 
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
- */
 function gutenberg_multi_gallery_init() {
 	register_block_type_from_metadata( __DIR__ );
 }
