@@ -36,7 +36,8 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
-    elems
+    elems,
+    backgroundColor
   } = attributes;
   const innerBlockCount = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select('core/block-editor').getBlock(clientId).innerBlocks);
   const appenderToUse = () => {
@@ -56,14 +57,23 @@ function Edit(_ref) {
     });
     console.log(elems);
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Background color', 'tar'),
+    colorSettings: [{
+      value: backgroundColor,
+      onChange: colorValue => setAttributes({
+        backgroundColor: colorValue
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Color', 'tar')
+    }]
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: `has-${elems}-elems`
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
     allowedBlocks: ['gutenberg/gallery-image'],
     orientation: "horizontal",
     template: [['gutenberg/gallery-image'], ['gutenberg/gallery-image'], ['gutenberg/gallery-image']],
     renderAppender: () => appenderToUse()
-  }));
+  })));
 }
 
 /***/ }),
@@ -290,6 +300,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('gutenberg/multi-gallery', {
+  support: {
+    html: false
+  },
+  attributes: {
+    backgroundColor: {
+      type: "string",
+      default: '#DFDFDF'
+    }
+  },
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
@@ -317,15 +336,31 @@ function save(_ref) {
     attributes
   } = _ref;
   const {
-    elems
+    elems,
+    backgroundColor
   } = attributes;
   let modifiedBlockProps = {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", modifiedBlockProps.save({
-    className: `has-elems-${elems}`
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `has-elems-${elems}`,
+    id: 'gallery-image-wrapper',
+    style: `background-color: ${backgroundColor}`
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", modifiedBlockProps.save({
+    className: `gallery-images`
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
 }
+
+// display: flex;
+// margin: 0 -240px;
+// width: calc(100% + 480px);
+// max-width: none;
+// position: relative;
+// height: 0;
+
+// display: flex;
+// position: absolute;
+// top: -210px;
 
 /***/ }),
 

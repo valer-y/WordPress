@@ -1,7 +1,8 @@
 import {
 	useBlockProps,
 	InnerBlocks,
-	InspectorControls
+	InspectorControls,
+	PanelColorSettings
 } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
@@ -9,7 +10,7 @@ import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
 export default function Edit( { clientId, attributes, setAttributes } ) {
-	const { elems } = attributes;
+	const { elems, backgroundColor } = attributes;
 
 	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
 
@@ -35,21 +36,54 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	};
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `has-${ elems }-elems`,
-			} ) }
-		>
-			<InnerBlocks
-				allowedBlocks={ [ 'gutenberg/gallery-image' ] }
-				orientation="horizontal"
-				template={ [
-					[ 'gutenberg/gallery-image' ],
-					[ 'gutenberg/gallery-image' ],
-					[ 'gutenberg/gallery-image' ],
-				] }
-				renderAppender={ () => appenderToUse() }
-			/>
-		</div>
+		<>
+			<InspectorControls>
+				<PanelColorSettings
+					title={__('Background color', 'tar')}
+					colorSettings={[
+						{
+							value: backgroundColor,
+							onChange: (colorValue) => setAttributes({ backgroundColor: colorValue }),
+							label: __('Color', 'tar'),
+						},
+					]}
+				/>
+				{/*<PanelBody title={__('Logo', 'cta')}*/}
+				{/*		   icon={"buddicons-activity"}*/}
+				{/*>*/}
+				{/*	{ logoUrl && <img src={ logoUrl } alt="logo" /> }*/}
+				{/*	<MediaPlaceholder*/}
+				{/*		icon={"smiley"}*/}
+				{/*		onSelect = { onSelectLogo }*/}
+				{/*		accept="image/*"*/}
+				{/*		allowedTypes={['image']}*/}
+				{/*		disableMediaButtons = { logoUrl }*/}
+				{/*	/>*/}
+				{/*	<TextControl*/}
+				{/*		label="Input link"*/}
+				{/*		value={ link }*/}
+				{/*	/>*/}
+				{/*</PanelBody>*/}
+			</InspectorControls>
+
+			<div
+				{ ...useBlockProps( {
+					className: `has-${ elems }-elems`,
+				} ) }
+			>
+				<InnerBlocks
+					allowedBlocks={ [ 'gutenberg/gallery-image' ] }
+					orientation="horizontal"
+					template={ [
+						[ 'gutenberg/gallery-image' ],
+						[ 'gutenberg/gallery-image' ],
+						[ 'gutenberg/gallery-image' ],
+					] }
+					renderAppender={ () => appenderToUse() }
+				/>
+			</div>
+
+		</>
+
 	);
 }
