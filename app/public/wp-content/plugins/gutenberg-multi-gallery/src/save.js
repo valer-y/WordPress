@@ -22,9 +22,13 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save({attributes}) {
+	const {elems} = attributes;
+
 	return (
-		<section { ...useBlockProps.save() }>
+		<section { ...useBlockProps.save({
+			className: `has-${elems}-elems`
+		}) }>
 			<InnerBlocks.Content />
 		</section>
 	);
