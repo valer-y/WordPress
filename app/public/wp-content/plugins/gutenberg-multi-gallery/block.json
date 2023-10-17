@@ -15,7 +15,7 @@
 	"style": "file:./build/style-index.css",
 	"attributes": {
 		"columns": {
-			"type": "number",
+			"elems": "number",
 			"default": 2
 		}
 	}

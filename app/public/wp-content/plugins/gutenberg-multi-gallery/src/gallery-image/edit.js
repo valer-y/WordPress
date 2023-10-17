@@ -11,15 +11,9 @@ import { isBlobURL, revokeBlobURL } from '@wordpress/blob';
 import { Spinner, withNotices, ToolbarButton } from '@wordpress/components';
 
 function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
-	const { name, bio, url, alt, id } = attributes;
+	const { url, alt, id } = attributes;
 	const [ blobURL, setBlobURL ] = useState();
 
-	const onChangeName = ( newName ) => {
-		setAttributes( { name: newName } );
-	};
-	const onChangeBio = ( newBio ) => {
-		setAttributes( { bio: newBio } );
-	};
 	const onSelectImage = ( image ) => {
 		if ( ! image || ! image.url ) {
 			setAttributes( { url: undefined, id: undefined, alt: '' } );

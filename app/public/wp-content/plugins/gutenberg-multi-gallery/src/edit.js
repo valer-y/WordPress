@@ -4,35 +4,42 @@ import {
 	InspectorControls
 } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
 export default function Edit( { clientId, attributes, setAttributes } ) {
-	const { columns } = attributes;
+	const { elems } = attributes;
 
-	const onChangeColumns = ( newColumns ) => {
-		setAttributes( { columns: newColumns } );
+	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
+
+
+	const appenderToUse = () => {
+		let elems = innerBlockCount.length;
+
+		if ( elems < 6 ) {
+
+			onChangeElems(elems);
+
+			return (
+				<InnerBlocks.ButtonBlockAppender className={'test'}/>
+			);
+		} else {
+			return false;
+		}
+	}
+
+	const onChangeElems = ( newElems ) => {
+		setAttributes( { elems: newElems } );
+		console.log(elems);
 	};
-
-	console.log(clientId);
 
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: `has-${ columns }-columns`,
+				className: `has-${ elems }-elems`,
 			} ) }
 		>
-			<InspectorControls>
-				<PanelBody>
-					<RangeControl
-						label={ __( 'Columns', 'team-members' ) }
-						min={ 1 }
-						max={ 6 }
-						onChange={ onChangeColumns }
-						value={ columns }
-					/>
-				</PanelBody>
-			</InspectorControls>
 			<InnerBlocks
 				allowedBlocks={ [ 'gutenberg/gallery-image' ] }
 				orientation="horizontal"
@@ -41,9 +48,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					[ 'gutenberg/gallery-image' ],
 					[ 'gutenberg/gallery-image' ],
 				] }
-				renderAppender={ () => (
-					<InnerBlocks.ButtonBlockAppender />
-				) }
+				renderAppender={ () => appenderToUse() }
 			/>
 		</div>
 	);
