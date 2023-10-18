@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "gutenberg/multi-text",
+	"title": "Multi Text",
+	"category": "text",
+	"icon": "smiley",
+	"keywords": ["text", "list", "heading", "title", "interexy"],
+	"description": "Adding block with heading, text and list",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "multi-text",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
