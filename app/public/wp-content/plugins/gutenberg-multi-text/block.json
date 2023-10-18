@@ -12,5 +12,19 @@
 	"textdomain": "multi-text",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+	  "title": {
+		"type": "string",
+		"default": ""
+	  },
+	  "list": {
+		"type": "string",
+		"default": ""
+	  },
+	  "text": {
+		"type": "string",
+		"default": ""
+	  }
+	}
 }

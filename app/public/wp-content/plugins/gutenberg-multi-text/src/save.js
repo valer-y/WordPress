@@ -1,10 +1,19 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
+// import {RichText} from "@wordpress/block-editor/build/components";
 
-export default function save() {
+export default function save({attributes}) {
+	const {title, list} = attributes;
+
 	return (
-		<p {...useBlockProps.save()}>
-			{__('Boilerplate – hello from the saved content!', 'boilerplate')}
-		</p>
+		<section {...useBlockProps.save()}>
+			<RichText.Content
+				tagName="h2"
+				value={title}
+			/>
+			<RichText.Content
+				value={list}
+			/>
+		</section>
 	);
 }
