@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-simple-text {
+  padding: 0 20px;
+  max-width: 1400px;
+
+	p {
+	  text-align: center;
+	  font-family: "Manrope", sans-serif;
+	  font-size: 18px;
+	  font-style: normal;
+	  font-weight: 400;
+	  line-height: 2;
+
+	  & > a {
+		text-decoration: none;
+		color: #4648F4;
+	  }
+	}
+}
