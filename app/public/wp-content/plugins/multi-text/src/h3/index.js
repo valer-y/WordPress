@@ -12,41 +12,32 @@ import { registerBlockType } from '@wordpress/blocks';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './style.scss';
-
+import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
 import Edit from './edit';
 import save from './save';
-import metadata from './block.json';
 
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( metadata.name, {
+registerBlockType( 'create-block/multi-text-h3', {
+	title: __( 'H3', 'multi-text-list' ),
 	icon: {
-		src: "text",
-		foreground: "#7fa8ff"
+		src: 'heading',
+		foreground: '#187315'
 	},
+	parent: ['create-block/multi-text'],
 	attributes: {
 		text: {
 			type: "string",
 			source: "html",
-			selector: "p",
-		},
-		backgroundColor: {
-			type: "string",
-			default: ""
-		},
-		color: {
-			type: "string",
-			default: "#3E3465"
-		},
+			selector: "h3"
+		}
 	},
-
 	/**
 	 * @see ./edit.js
 	 */

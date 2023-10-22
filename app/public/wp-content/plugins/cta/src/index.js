@@ -28,25 +28,52 @@ import metadata from './block.json';
  */
 registerBlockType( metadata.name, {
 	icon: {
-		src: "text",
+		src: "cover-image",
 		foreground: "#7fa8ff"
 	},
 	attributes: {
-		text: {
-			type: "string",
-			source: "html",
-			selector: "p",
-		},
 		backgroundColor: {
 			type: "string",
 			default: ""
 		},
-		color: {
+		heading: {
 			type: "string",
-			default: "#3E3465"
+			source: "html",
+			selector: "p"
+		},
+		images: {
+			type: 'array',
+			source: 'query',
+			selector: 'img',
+			query: {
+				url: {
+					type: 'string',
+					source: 'attribute',
+					attribute: 'src',
+				},
+				alt: {
+					type: 'string',
+					source: 'attribute',
+					attribute: 'alt',
+				},
+			}
+		},
+		link: {
+			type: "string"
+		},
+		urlImage: {
+			type: "string"
+		},
+		urlImageId: {
+			type: "number"
+		},
+		urlImageAlt: {
+			type: "string"
+		},
+		urlLogo: {
+			type: "string"
 		},
 	},
-
 	/**
 	 * @see ./edit.js
 	 */

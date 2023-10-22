@@ -1,0 +1,50 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-color-image {
+  position: relative;
+  display: flex;
+  //padding: 0 20px;
+
+  .color-image__color-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.top-bg,
+	.bottom-bg {
+	  width: 100%;
+	}
+
+	.top-bg {
+	  height: 73.5vh;
+	  background-color: var(--color-image__top-bg_color);
+	  max-height: 560px;
+	}
+
+	.bottom-bg {
+	  height: 26.5vh;
+	  background-color: var(--color-image__bottom-bg_color);
+	  max-height: 200px;
+
+	}
+  }
+
+  .color-image__wrapper {
+	display: flex;
+	width: 100%;
+	padding: 0 20px;
+
+	img {
+	  margin: 0 auto;
+	}
+  }
+}

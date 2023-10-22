@@ -12,41 +12,32 @@ import { registerBlockType } from '@wordpress/blocks';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './style.scss';
 
 /**
  * Internal dependencies
  */
 import Edit from './edit';
 import save from './save';
-import metadata from './block.json';
 
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( metadata.name, {
+registerBlockType( 'create-block/multi-text-text', {
+	title: 'Text',
 	icon: {
-		src: "text",
-		foreground: "#7fa8ff"
+		src: 'text',
+		foreground: '#187315'
 	},
+	parent: ['create-block/multi-text'],
 	attributes: {
 		text: {
 			type: "string",
 			source: "html",
-			selector: "p",
-		},
-		backgroundColor: {
-			type: "string",
-			default: ""
-		},
-		color: {
-			type: "string",
-			default: "#3E3465"
-		},
+			selector: "div"
+		}
 	},
-
 	/**
 	 * @see ./edit.js
 	 */

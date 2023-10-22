@@ -19,6 +19,9 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
+import "./text";
+import "./list";
+import "./h3";
 import metadata from './block.json';
 
 /**
@@ -27,26 +30,34 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
-	icon: {
-		src: "text",
-		foreground: "#7fa8ff"
-	},
 	attributes: {
-		text: {
-			type: "string",
-			source: "html",
-			selector: "p",
-		},
 		backgroundColor: {
 			type: "string",
 			default: ""
 		},
+		categoryName: {
+			type: "string"
+		},
 		color: {
 			type: "string",
-			default: "#3E3465"
+			default: "#191B20"
 		},
+		fontColor: {
+			type: "string",
+			default: "#191B20"
+		},
+		bulletColor: {
+			type: "string",
+			default: "#191B20"
+		},
+		title: {
+			type: "string"
+		}
 	},
-
+	icon: {
+		src: "media-document",
+		foreground: "#7fa8ff",
+	},
 	/**
 	 * @see ./edit.js
 	 */

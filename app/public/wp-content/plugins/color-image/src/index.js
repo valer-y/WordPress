@@ -27,26 +27,27 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
+	attributes: {
+		urlImage: {
+			type: "string"
+		},
+		urlImageId: {
+			type: "string"
+		},
+		urlImageAlt: {
+			type: "string"
+		},
+		backgroundTop: {
+			type: "string"
+		},
+		backgroundBottom: {
+			type: "string"
+		},
+	},
 	icon: {
-		src: "text",
+		src: "format-image",
 		foreground: "#7fa8ff"
 	},
-	attributes: {
-		text: {
-			type: "string",
-			source: "html",
-			selector: "p",
-		},
-		backgroundColor: {
-			type: "string",
-			default: ""
-		},
-		color: {
-			type: "string",
-			default: "#3E3465"
-		},
-	},
-
 	/**
 	 * @see ./edit.js
 	 */
