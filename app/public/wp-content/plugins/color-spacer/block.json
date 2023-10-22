@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "gutenberg/color-spacer",
+	"title": "Color Spacer",
+	"category": "text",
+	"description": "Color spacer between blocks",
+  	"keywords": ["color"],
+  	"supports": {
+		"html": false
+	},
+	"textdomain": "color-spacer",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

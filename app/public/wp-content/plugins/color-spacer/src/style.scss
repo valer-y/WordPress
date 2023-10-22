@@ -1,0 +1,11 @@
+.gutenberg__color-spacer {
+  height: 40px;
+
+  @media (min-width: 1024px) {
+	height: 80px;
+  }
+
+  @media (min-width: 1600px) {
+	height: 140px;
+  }
+}
