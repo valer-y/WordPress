@@ -29,8 +29,7 @@ import metadata from './block.json';
 registerBlockType( metadata.name, {
 	icon: {
 		src: "text",
-		background: "#aecaff",
-		foreground: "#2a4b91"
+		foreground: "#7fa8ff"
 	},
 	attributes: {
 		text: {

@@ -4,9 +4,14 @@
   "name": "create-block/simple-text",
   "version": "0.1.0",
   "title": "Simple Text",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "category": "text",
+  "description": "Allows to add single paragraph wit text / color / background styling",
+  "keywords": [
+    "interexy",
+    "text",
+    "paragraph",
+    "simple-text"
+  ],
   "example": {},
   "supports": {
     "html": false
