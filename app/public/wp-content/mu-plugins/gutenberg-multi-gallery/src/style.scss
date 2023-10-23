@@ -1,0 +1,69 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-gutenberg-multi-gallery {
+  position: relative;
+  display: flex;
+  margin: 0;
+  overflow-x: hidden;
+
+  @media (min-width: 1024px) {
+	margin: 0 -260px;
+  }
+
+  .multi-gallery__wrapper {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	row-gap: 20px;
+	column-gap: 20px;
+	padding: 0 20px;
+	width: 100%;
+	justify-content: center;
+	//box-sizing: border-box;
+	align-items: center;
+
+	.wp-block-gutenberg-gallery-image {
+
+	  img {
+		border-radius: 5px;
+
+		@media (min-width: 768px) {
+		  border-radius: 10px;
+		}
+	  }
+	}
+
+	@media (min-width: 1024px) {
+	  flex-direction: row;
+	  padding: 0;
+	}
+  }
+
+  .multi-gallery__color-bg {
+	width: 100%;
+	height: 100%;
+	background: gray;
+	position: absolute;
+	z-index: -1;
+
+	.bottom-bg {
+	  height: 20%;
+	}
+
+	.top-bg {
+	  height: 80%;
+	}
+
+	@media (min-width: 1024px) {
+	  .top-bg,
+	  .bottom-bg {
+		height: 50%;
+	  }
+	}
+  }
+}
