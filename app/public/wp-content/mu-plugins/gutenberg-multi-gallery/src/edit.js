@@ -1,11 +1,11 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import './editor.scss';
-import { PanelBody, RangeControl } from "@wordpress/components";
+import { ToggleControl, PanelBody } from '@wordpress/components';
 import { useSelect, } from '@wordpress/data';
 
 export default function Edit( {clientId, attributes, setAttributes} ) {
-	const {elems, backgroundBottom, backgroundTop } = attributes;
+	const {backgroundBottom, backgroundTop, elems, toggle } = attributes;
 
 	const onChangeElems = ( newElems ) => {
 		setAttributes( { elems: newElems } );
@@ -32,7 +32,7 @@ export default function Edit( {clientId, attributes, setAttributes} ) {
 
 	return (
 		<section { ...useBlockProps({
-			className: `has-${elems}-elems`
+			className: `has-${elems}-elems ${ toggle && "masonry"}`
 		}) }>
 			<InspectorControls>
 				<PanelColorSettings
@@ -55,6 +55,18 @@ export default function Edit( {clientId, attributes, setAttributes} ) {
 						},
 					]}
 				/>
+				<PanelBody
+					title={ __( 'Masonry togle', 'multi-gallery' ) }
+					icon="admin-appearance"
+					initialOpen={true}
+				>
+					<ToggleControl
+						checked={ toggle }
+						onChange={ (val) => {
+							setAttributes({toggle: val}); console.log(toggle)
+						} }
+					/>
+				</PanelBody>
 			</InspectorControls>
 
 			<div className="multi-gallery__color-bg">

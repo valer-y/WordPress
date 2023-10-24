@@ -5,10 +5,6 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-main {
-  overflow-x: hidden;
-}
-
 .wp-block-gutenberg-multi-gallery {
   position: relative;
   display: flex;
@@ -19,6 +15,45 @@ main {
 	margin: 0 -260px;
   }
 
+  // Masonry on
+  &.has-4-elems.masonry {
+	margin: 0;
+	column-gap: 10px;
+	display: flex;
+
+	@media (min-width: 1024px) {
+	  & > .multi-gallery__wrapper {
+		display: block;
+		column-count: 2;
+		column-gap: 10px;
+		margin: 0;
+		padding: 0 20px;
+	  }
+
+	  .wp-block-gutenberg-gallery-image {
+		margin: 0;
+		display: grid;
+		grid-template-rows: 1fr auto;
+		margin-bottom: 10px;
+		break-inside: avoid;
+		max-width: 100%;
+
+		&:nth-child(1),
+		&:nth-child(2) {
+		  justify-content: right;
+		}
+
+		img {
+		  display: block;
+		  height: 100%;
+		  width: auto;
+		}
+	  }
+	}
+
+  }
+
+  // Masonry off
   &.has-4-elems > .multi-gallery__wrapper{
 	display: flex;
 	flex-direction: column;
@@ -64,22 +99,18 @@ main {
 
 	@media (min-width: 768px) {
 	  margin: 0 calc((100% - 1100px) / 2);
-	  max-height: 600px;
 	}
 
 	@media (min-width: 1024px) {
 	  margin: 0 calc((100% - 1600px) / 2);
-	  max-height: 900px;
 	}
 
 	@media (min-width: 1400px) {
 	  margin: 0 calc((100% - 1900px) / 2);
-	  max-height: 1128px;
 	}
 
 	@media (min-width: 1600px) {
 	  margin: 0 calc((100% - 2240px) / 2);
-	  height: 1340px;
 	}
 
 	& > .multi-gallery__wrapper{

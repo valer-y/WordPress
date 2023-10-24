@@ -23,11 +23,11 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save({attributes}) {
-	const {elems, backgroundBottom, backgroundTop} = attributes;
+	const {backgroundBottom, backgroundTop, elems, toggle} = attributes;
 
 	return (
 		<section { ...useBlockProps.save({
-			className: `has-${elems}-elems`
+			className: `has-${elems}-elems ${ toggle && "masonry"}`
 		}) }>
 			<div className="multi-gallery__color-bg">
 				<div className="top-bg" style={`background-color: ${backgroundTop}`}></div>

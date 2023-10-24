@@ -6,6 +6,10 @@ import save from './save';
 
 registerBlockType( 'gutenberg/multi-gallery', {
 	attributes: {
+		toggle: {
+			type: "bool",
+			default: false
+		},
 		elems: {
 			text: "string",
 		},
