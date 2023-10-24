@@ -17,9 +17,9 @@ export default function Edit( {clientId, attributes, setAttributes} ) {
 	const appenderToUse = () => {
 		let elems = innerBlockCount.length;
 
-		if ( elems < 6 ) {
+		onChangeElems(elems);
 
-			onChangeElems(elems);
+		if ( elems < 6 ) {
 
 			return (
 				<InnerBlocks.ButtonBlockAppender className={'test'}/>
