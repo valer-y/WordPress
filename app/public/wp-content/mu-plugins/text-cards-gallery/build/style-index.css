@@ -1,0 +1,101 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-create-block-text-cards-gallery {
+  padding: 0 20px;
+  font-family: "Manrope", sans-serif;
+}
+.wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+@media (min-width: 568px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper {
+    row-gap: 40px;
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+  }
+}
+.wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  color: #3E3465;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+@media (min-width: 768px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card {
+    padding: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card {
+    padding: 45px;
+  }
+}
+@media (min-width: 1400px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card {
+    padding: 64px;
+  }
+}
+.wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card > h4 {
+  margin: 0;
+  color: #191B20;
+  font-size: 20px;
+  font-weight: 800;
+}
+@media (min-width: 1400px) {
+  .wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card > h4 {
+    font-size: 24px;
+  }
+}
+.wp-block-create-block-text-cards-gallery .text-cards-gallery__wrapper .block-text-card > p {
+  margin: 0;
+  font-weight: 400;
+  line-height: 200%;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/card/style.css ***!
+  \************************************************************************************************************************************************************************/
+.wp-block-create-block-multi-text-text p {
+	word-wrap: break-word;
+	line-height: 2;
+	color: inherit;
+}
+
+.wp-block-create-block-multi-text-text p:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 1600px) {
+	.wp-block-create-block-multi-text-text p {
+		margin: 0 0 40px 0;
+	}
+}
+
+
+/*# sourceMappingURL=style-index.css.map*/
