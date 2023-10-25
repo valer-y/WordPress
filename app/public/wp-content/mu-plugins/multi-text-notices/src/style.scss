@@ -1,0 +1,101 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-multi-text-notices {
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  padding: 0 20px;
+
+  .multi-text-notices__block-wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 40px;
+	margin: 0 auto;
+	max-width: 1400px;
+
+	@media (min-width: 768px) {
+	  flex-direction: row;
+	  column-gap: 40px;
+	}
+
+	@media (min-width: 1024px) {
+	  flex-direction: row;
+	  column-gap: 60px;
+	}
+
+	@media (min-width: 1400px) {
+	  flex-direction: row;
+	  column-gap: 80px;
+	}
+
+	.multi-text-notices__wrapper {
+	  display: flex;
+	  flex-direction: column;
+	  row-gap: 30px;
+
+	  @media (min-width: 1400px) {
+		align-self: center;
+		padding-right: 80px;
+	  }
+	}
+
+	.multi-text__image {
+	  display: flex;
+	  img {
+		margin: 0 auto;
+	  }
+	}
+
+	.block-category {
+	  text-transform: uppercase;
+	  font-weight: 500;
+	  margin: 0;
+	}
+
+	.block-heading {
+	  margin: 0;
+	  font-size: 32px;
+	  font-weight: 800;
+	}
+
+	.wp-block-create-block-multi-text-text {
+	  p {
+		font-size: 18px;
+		margin: 0;
+
+		&:not(:first-child) {
+		  margin-top: 18px;
+		}
+	  }
+	}
+
+	.multi-text-h3 {
+	  font-size: 20px;
+	}
+
+	.multi-text-list {
+	  padding-left: 15px;
+	  margin: 0;
+
+	  li {
+		line-height: 1.83;
+		padding-left: 25px;
+
+		&::marker {
+		  content: var(--marker);
+		}
+
+		&:not(:last-child) {
+		  margin-bottom: 15px;
+		}
+	  }
+
+	}
+
+  }
+
+}
