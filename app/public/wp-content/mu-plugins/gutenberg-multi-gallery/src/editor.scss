@@ -1,0 +1,34 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+//.editor-styles-wrapper {
+//  .wp-block-gutenberg-multi-gallery {
+//	&.has-6-elems {
+//	  margin: 0;
+//	  max-height: unset;
+//	  height: auto;
+//
+//	  .multi-gallery__wrapper {
+//		display: flex;
+//	  }
+//	}
+//
+//  }
+//
+//}
+
+section.has-6-elems.wp-block-gutenberg-multi-gallery {
+  margin: 0;
+  max-width: unset;
+
+  .multi-gallery__wrapper {
+	display: flex;
+  }
+}
+
+.wp-block-gutenberg-multi-gallery.has-4-elems.masonry {
+  margin: 0 auto;
+}

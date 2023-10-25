@@ -1,0 +1,15 @@
+.wp-block-create-block-multi-text-text p {
+	word-wrap: break-word;
+	line-height: 2;
+	color: inherit;
+}
+
+.wp-block-create-block-multi-text-text p:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 1600px) {
+	.wp-block-create-block-multi-text-text p {
+		margin: 0 0 40px 0;
+	}
+}

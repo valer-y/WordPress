@@ -1,0 +1,7 @@
+.wp-block-gutenberg-multi-text-list.multi-text-list {
+	margin: 30px 0 0 0;
+}
+
+.wp-block-gutenberg-multi-text-list li {
+	word-wrap: break-word;
+}
